@@ -1,10 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { navPath } from "../assets/constant/routePath";
+import { color } from "../assets/theme";
 // import { useState } from "react";
 
 const LogIn = () => {
+  const navigate = useNavigate();
   //   const [login, setLogin] = useState(false);
 
   const onLogIn = () => {
+    navigate(navPath.authHouse);
     // console.log(login);
     // setLogin(true);
   };
@@ -18,7 +23,7 @@ const LogIn = () => {
         <p>PW</p>
         <input type="text"></input>
         <br />
-        <button onClick={onLogIn}>로그인하기</button>
+        <button onClick={onLogIn}>로그인</button>
       </LogInContainer>
     </LogInWrapper>
   );
@@ -44,19 +49,19 @@ const LogInContainer = styled.div`
     border-radius: 0.5rem;
     margin: 2rem;
     padding: 0.5rem;
-    color: white;
-    background-color: #845ec2;
+    color: ${color.backColor};
+    background-color: ${color.color1};
   }
 
   button:hover {
     cursor: pointer;
-    color: white;
-    background-color: #a973ff;
+    color: ${color.backColor};
+    background-color: ${color.color3};
   }
 `;
 
 const Title = styled.div`
   font-size: 48px;
   font-weight: bold;
-  color: #845ec2;
+  color: ${color.color1};
 `;

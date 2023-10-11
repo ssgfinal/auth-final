@@ -1,16 +1,25 @@
-// import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import LogIn from "./pages/LogIn";
-
-// import { useState } from "react";
+import { navPath, routePath } from "./assets/constant/routePath";
+import { RouteWrap } from "./layout";
+import { AuthHouse, AuthCoupon, AuthDeclaration, LogIn } from "./pages";
+import HouseDelete from "./components/HouseDelete";
 
 function App() {
-  // const [login, setLogin] = useState(false);
-
   return (
-    <div>
-      <LogIn />
-    </div>
+    <Routes>
+      {/* 중첩 라우팅 */}
+      <Route path={routePath.main} element={<RouteWrap />}>
+        <Route path={navPath.login} element={<LogIn />}></Route>
+        <Route path={navPath.authHouse} element={<AuthHouse />}></Route>
+        <Route path={navPath.delHouse} element={<HouseDelete />}></Route>
+        <Route path={navPath.authCoupon} element={<AuthCoupon />}></Route>
+        <Route
+          path={navPath.authDeclaration}
+          element={<AuthDeclaration />}
+        ></Route>
+      </Route>
+    </Routes>
   );
 }
 

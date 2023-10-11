@@ -3,13 +3,11 @@ const routePath = {
 };
 
 const navPath = {
+  login: "/login",
   authHouse: "/auth/house",
+  delHouse: "/auth/delete",
   authCoupon: "/auth/coupon",
   authDeclaration: "/auth/declaration",
 };
 
-const mainPath = {
-  authMain: "/auth",
-};
-
-export { routePath, navPath, mainPath };
+export { routePath, navPath };

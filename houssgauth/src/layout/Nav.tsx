@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { mainPath, navPath } from "../assets/constant/routePath";
+import { navPath } from "../assets/constant/routePath";
+import { color } from "../assets/theme";
 // import { AuthCoupon, AuthDeclaration, AuthHouse } from "../pages";
 
 const Nav = () => {
@@ -8,34 +9,27 @@ const Nav = () => {
 
   return (
     <NavWrapper>
-      <div
-        onClick={() => {
-          navigate(mainPath.authMain);
-        }}
-      >
-        홈
-      </div>
-      <div
+      <AuthHouse
         onClick={() => {
           navigate(navPath.authHouse);
         }}
       >
-        업체관리
-      </div>
-      <div
+        숙소관리
+      </AuthHouse>
+      <AuthCoupon
         onClick={() => {
           navigate(navPath.authCoupon);
         }}
       >
         쿠폰관리
-      </div>
-      <div
+      </AuthCoupon>
+      <AuthDeclaration
         onClick={() => {
           navigate(navPath.authDeclaration);
         }}
       >
         신고관리
-      </div>
+      </AuthDeclaration>
     </NavWrapper>
   );
 };
@@ -43,5 +37,33 @@ const Nav = () => {
 export default Nav;
 
 const NavWrapper = styled.div`
-  background-color: green;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: ${color.backColor};
+  background-color: ${color.color1};
+  padding: 0.8rem;
+  margin: 0.8rem 0;
+  font-size: 1.1rem;
+`;
+
+const AuthHouse = styled.div`
+  cursor: pointer;
+  &:hover {
+    font-weight: bold;
+  }
+`;
+
+const AuthCoupon = styled.div`
+  cursor: pointer;
+  &:hover {
+    font-weight: bold;
+  }
+`;
+
+const AuthDeclaration = styled.div`
+  cursor: pointer;
+  &:hover {
+    font-weight: bold;
+  }
 `;

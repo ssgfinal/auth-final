@@ -1,11 +1,17 @@
 import styled from "styled-components";
 
 const Footer = () => {
-  return <FooterWrapper>풋터입니다.</FooterWrapper>;
+  return (
+    <FooterWrapper>
+      <small>Copyright &copy;houssg</small>
+    </FooterWrapper>
+  );
 };
 
 export default Footer;
 
-const FooterWrapper = styled.div`
-  background-color: blue;
+const FooterWrapper = styled.footer`
+  position: absolute;
+  width: 100%;
+  height: 110px;
 `;
