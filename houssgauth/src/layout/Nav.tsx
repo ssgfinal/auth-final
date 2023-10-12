@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { navPath } from "../assets/constant/routePath";
 import { color } from "../assets/theme";
-// import { AuthCoupon, AuthDeclaration, AuthHouse } from "../pages";
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -14,8 +13,15 @@ const Nav = () => {
           navigate(navPath.authHouse);
         }}
       >
-        숙소관리
+        숙소승인
       </AuthHouse>
+      <AuthDelete
+        onClick={() => {
+          navigate(navPath.delHouse);
+        }}
+      >
+        숙소삭제
+      </AuthDelete>
       <AuthCoupon
         onClick={() => {
           navigate(navPath.authCoupon);
@@ -48,6 +54,13 @@ const NavWrapper = styled.div`
 `;
 
 const AuthHouse = styled.div`
+  cursor: pointer;
+  &:hover {
+    font-weight: bold;
+  }
+`;
+
+const AuthDelete = styled.div`
   cursor: pointer;
   &:hover {
     font-weight: bold;

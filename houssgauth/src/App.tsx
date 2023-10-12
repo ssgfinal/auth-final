@@ -2,8 +2,13 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { navPath, routePath } from "./assets/constant/routePath";
 import { RouteWrap } from "./layout";
-import { AuthHouse, AuthCoupon, AuthDeclaration, LogIn } from "./pages";
-import HouseDelete from "./components/HouseDelete";
+import {
+  AuthHouse,
+  AuthDelete,
+  AuthCoupon,
+  AuthDeclaration,
+  LogIn,
+} from "./pages";
 
 function App() {
   return (
@@ -12,7 +17,7 @@ function App() {
       <Route path={routePath.main} element={<RouteWrap />}>
         <Route path={navPath.login} element={<LogIn />}></Route>
         <Route path={navPath.authHouse} element={<AuthHouse />}></Route>
-        <Route path={navPath.delHouse} element={<HouseDelete />}></Route>
+        <Route path={navPath.delHouse} element={<AuthDelete />}></Route>
         <Route path={navPath.authCoupon} element={<AuthCoupon />}></Route>
         <Route
           path={navPath.authDeclaration}

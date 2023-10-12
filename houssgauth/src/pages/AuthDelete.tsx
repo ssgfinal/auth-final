@@ -1,45 +1,49 @@
 import { houseServiceCategory } from "../assets/constant/serviceList";
 import styled from "styled-components";
 import { color } from "../assets/theme";
-import { house } from "../assets/constant/dummyData";
+import { deletehouse } from "../assets/constant/dummyData";
 
-const AuthHouse = () => {
+const AuthDelete = () => {
   return (
-    <>
-      {house.map((house, index) => (
+    <div>
+      {deletehouse.map((deletehouse, index) => (
         <HouseWrapper key={index}>
           <NameBox>
-            ✧&nbsp;{house.accomName}&nbsp;[{house.accomCategory}/
-            {house.accomNumber}]&nbsp;✧
+            ✧&nbsp;{deletehouse.accomName}&nbsp;[{deletehouse.accomCategory}/
+            {deletehouse.accomNumber}]&nbsp;✧
           </NameBox>
-          <HouseImgBox src={house.img}></HouseImgBox>
+          <GrayBox>
+            별점/리뷰&nbsp;(⭐{deletehouse.avgRating}/ 💌
+            {deletehouse.reviewCount.toLocaleString()}개)
+          </GrayBox>
+          <HouseImgBox src={deletehouse.img}></HouseImgBox>
           <div>
             <span>사업자번호&nbsp;</span>
-            {house.businessNumber}
+            {deletehouse.businessNumber}
           </div>
           <div>
             <span>관리자&nbsp;</span>
-            {house.ownerId}
+            {deletehouse.ownerId}
           </div>
           <div>
             <span>☎&nbsp;</span>
-            {house.teleNumber}
+            {deletehouse.teleNumber}
           </div>
           <div>
             <span>주소&nbsp;</span>
-            {house.accomAddress}
+            {deletehouse.accomAddress}
           </div>
           <div>
             <span>입/퇴실 시간&nbsp;</span>
-            {house.checkIn}/{house.checkOut}
+            {deletehouse.checkIn}/{deletehouse.checkOut}
           </div>
           <div>
             <span>최저가&nbsp;</span>
-            {house.minPrice.toLocaleString()}원~
+            {deletehouse.minPrice.toLocaleString()}원~
           </div>
           <span>시설 및 서비스</span>
           <ServiceBox>
-            {house.service.map((services, i) => {
+            {deletehouse.service.map((services, i) => {
               if (i >= 0 && i < houseServiceCategory.length && services) {
                 return (
                   <div key={i}>&nbsp;•&nbsp;{houseServiceCategory[i].text}</div>
@@ -54,11 +58,11 @@ const AuthHouse = () => {
           </ButtonBox>
         </HouseWrapper>
       ))}
-    </>
+    </div>
   );
 };
 
-export default AuthHouse;
+export default AuthDelete;
 
 const HouseWrapper = styled.div`
   width: 35%;
@@ -88,6 +92,11 @@ const NameBox = styled.div`
   color: ${color.color1};
   font-size: 1.5rem;
   font-weight: bold;
+`;
+
+const GrayBox = styled.div`
+  font-size: small;
+  color: ${color.darkGrayColor};
 `;
 
 const ServiceBox = styled.div`

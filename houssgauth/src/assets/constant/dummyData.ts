@@ -74,3 +74,24 @@ export const house = [
     ownerId: "tmanager123",
   },
 ];
+
+export const deletehouse = [
+  {
+    accomNumber: 12,
+    accomName: "A Hotel",
+    accomAddress: "경기도 가평군 가평읍 태봉두밀로 441",
+    teleNumber: "01012345678",
+    accomCategory: "호텔",
+    accomDetails:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab magni velit incidunt nam ducimus esse quia reprehenderit sed molestiae, harum eaque adipisci saepe recusandae voluptas repellat laudantium, architecto at!",
+    checkIn: "10:00",
+    checkOut: "15:00",
+    businessNumber: "141-81-18585",
+    img: reviewImg,
+    service: [1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+    avgRating: 3.0,
+    minPrice: 110000,
+    reviewCount: 100,
+    ownerId: "amanager123",
+  },
+];
