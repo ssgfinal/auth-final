@@ -2,16 +2,35 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { navPath } from "../assets/constant/routePath";
 import { color } from "../assets/theme";
+import api from "../api/api";
+import { loginUrl } from "../assets/constant/urlConst";
+import { useRef } from "react";
 // import { useState } from "react";
 
 const LogIn = () => {
   const navigate = useNavigate();
   //   const [login, setLogin] = useState(false);
+  const authId = useRef<HTMLInputElement | null>(null);
+  const authPass = useRef<HTMLInputElement | null>(null);
 
-  const onLogIn = () => {
-    navigate(navPath.authHouse);
-    // console.log(login);
-    // setLogin(true);
+  const onLogIn = async () => {
+    try {
+      const id = authId.current?.value;
+      const password = authPass.current?.value;
+      const { data, status, headers } = await api.post(loginUrl.login, {
+        id,
+        password,
+      });
+      if (status === 200) {
+        sessionStorage.setItem("authorization", headers.authorization);
+        sessionStorage.setItem("refreshtoken", headers.refreshtoken);
+        sessionStorage.setItem("nickname", data.nickname);
+        sessionStorage.setItem("phone", data.phone);
+      }
+      navigate(navPath.authHouse);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -19,9 +38,9 @@ const LogIn = () => {
       <LogInContainer>
         <Title>HOUS-SG</Title>
         <p>ID</p>
-        <input type="text"></input>
+        <input type="text" ref={authId}></input>
         <p>PW</p>
-        <input type="text"></input>
+        <input type="password" ref={authPass}></input>
         <br />
         <button onClick={onLogIn}>로그인</button>
       </LogInContainer>
