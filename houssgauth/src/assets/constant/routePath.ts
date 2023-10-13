@@ -3,8 +3,7 @@ const routePath = {
 };
 
 const navPath = {
-  login: "/login",
-  authHouse: "/auth/house",
+  authHouse: "/auth",
   delHouse: "/auth/delete",
   authCoupon: "/auth/coupon",
   authDeclaration: "/auth/declaration",

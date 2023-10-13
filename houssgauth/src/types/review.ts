@@ -1,4 +1,4 @@
-interface ReviewList {
+interface ReviewProps {
   reviewNumber: number;
   reviewContent: string;
   reviewRating: number;
@@ -15,6 +15,4 @@ interface ReviewList {
   accomName: string;
   nickname: string;
 }
-[];
-
-export type { ReviewList };
+export type { ReviewProps };

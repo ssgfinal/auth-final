@@ -14,9 +14,9 @@ function App() {
   return (
     <Routes>
       {/* 중첩 라우팅 */}
-      <Route path={routePath.main} element={<RouteWrap />}>
-        <Route path={navPath.login} element={<LogIn />}></Route>
-        <Route path={navPath.authHouse} element={<AuthHouse />}></Route>
+      <Route path={routePath.main} element={<LogIn />}></Route>
+      <Route path={navPath.authHouse} element={<RouteWrap />}>
+        <Route index element={<AuthHouse />}></Route>
         <Route path={navPath.delHouse} element={<AuthDelete />}></Route>
         <Route path={navPath.authCoupon} element={<AuthCoupon />}></Route>
         <Route
