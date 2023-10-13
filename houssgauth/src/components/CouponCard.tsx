@@ -68,7 +68,7 @@ const CouponCard: React.FC<Coupon> = ({ coupon }) => {
           ))}
         </div>
       ) : (
-        <></>
+        <NullBox>등록된 쿠폰이 없습니다.</NullBox>
       )}
     </>
   );
@@ -118,4 +118,10 @@ const CouponListContainer = styled.div`
 const ContentsBox = styled.p`
   padding-left: 85px;
   text-align: left;
+`;
+
+const NullBox = styled.div`
+  font-size: 1.5rem;
+  color: ${color.darkGrayColor};
+  margin: 3rem;
 `;

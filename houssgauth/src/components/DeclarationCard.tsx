@@ -80,7 +80,7 @@ const DeclarationCard: React.FC<Review> = ({ review }) => {
           ))}
         </>
       ) : (
-        <></>
+        <NullBox>신고된 후기가 없습니다.</NullBox>
       )}
     </div>
   );
@@ -208,4 +208,10 @@ const CommentBox = styled.div`
   grid-column-start: 1;
   grid-column-end: 3;
   text-align: left;
+`;
+
+const NullBox = styled.div`
+  font-size: 1.5rem;
+  color: ${color.darkGrayColor};
+  margin: 3rem;
 `;
