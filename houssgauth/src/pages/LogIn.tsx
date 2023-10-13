@@ -5,11 +5,10 @@ import { color } from "../assets/theme";
 import api from "../api/api";
 import { loginUrl } from "../assets/constant/urlConst";
 import { useRef } from "react";
-// import { useState } from "react";
 
 const LogIn = () => {
   const navigate = useNavigate();
-  //   const [login, setLogin] = useState(false);
+
   const authId = useRef<HTMLInputElement | null>(null);
   const authPass = useRef<HTMLInputElement | null>(null);
 
@@ -17,17 +16,15 @@ const LogIn = () => {
     try {
       const id = authId.current?.value;
       const password = authPass.current?.value;
-      const { data, status, headers } = await api.post(loginUrl.login, {
+      const { status, headers } = await api.post(loginUrl.login, {
         id,
         password,
       });
       if (status === 200) {
         sessionStorage.setItem("authorization", headers.authorization);
         sessionStorage.setItem("refreshtoken", headers.refreshtoken);
-        sessionStorage.setItem("nickname", data.nickname);
-        sessionStorage.setItem("phone", data.phone);
+        navigate(navPath.authHouse);
       }
-      navigate(navPath.authHouse);
     } catch (error) {
       console.log(error);
     }
