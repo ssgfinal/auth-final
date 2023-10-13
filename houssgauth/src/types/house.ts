@@ -1,4 +1,4 @@
-interface HouseList {
+interface HouseProps {
   accomNumber: number;
   accomName: string;
   accomAddress: string;
@@ -13,8 +13,7 @@ interface HouseList {
   avgRating: number;
   minPrice: number;
   reviewCount: number;
-  ownerId: string;
+  id: string;
 }
-[];
 
-export type { HouseList };
+export type { HouseProps };

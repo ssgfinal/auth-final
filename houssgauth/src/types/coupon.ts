@@ -1,10 +1,8 @@
-interface CouponList {
+interface CouponProps {
   couponNumber: string;
   couponName: string;
   discount: number;
   expirationDate: string;
   expirationStatus: number;
 }
-[];
-
-export type { CouponList };
+export type { CouponProps };
